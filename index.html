@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bordados</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8f0;
+      color: #333;
+    }
+    header {
+      background-color: #a0522d;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .product {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      width: 250px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .product img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .product input {
+      width: 50px;
+      padding: 5px;
+      margin: 10px 0;
+    }
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #25d366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    footer {
+      background-color: #a0522d;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+    @media (max-width: 600px) {
+      .products {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Bordados</h1>
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<section class="section" id="sobre">
+  <h2>Sobre Nós</h2>
+  <p>Loja especializada em bordados personalizados feitos com carinho e qualidade.</p>
+</section>
+
+<section class="section" id="produtos">
+  <h2>Nossos Produtos</h2>
+  <div class="products">
+    
+    <div class="product">
+      <img src="https://via.placeholder.com/250x200.png?text=Toalha+Bordada" alt="Toalha Bordada">
+      <h3>Toalha Bordada</h3>
+      <p>A partir de R$40</p>
+      <input type="number" id="qtd1" value="1" min="1"/>
+      <button class="whatsapp-btn" onclick="enviarPedido('Toalha Bordada', 40, 'qtd1')">Comprar via WhatsApp</button>
+    </div>
+
+    <div class="product">
+      <img src="https://via.placeholder.com/250x200.png?text=Quadro+Decorativo" alt="Quadro Decorativo">
+      <h3>Quadro Decorativo</h3>
+      <p>A partir de R$60</p>
+      <input type="number" id="qtd2" value="1" min="1"/>
+      <button class="whatsapp-btn" onclick="enviarPedido('Quadro Decorativo', 60, 'qtd2')">Comprar via WhatsApp</button>
+    </div>
+
+    <div class="product">
+      <img src="https://via.placeholder.com/250x200.png?text=Chaveiro" alt="Chaveiro">
+      <h3>Chaveiro Personalizado</h3>
+      <p>A partir de R$20</p>
+      <input type="number" id="qtd3" value="1" min="1"/>
+      <button class="whatsapp-btn" onclick="enviarPedido('Chaveiro Personalizado', 20, 'qtd3')">Comprar via WhatsApp</button>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="contato">
+  <h2>Contato</h2>
+  <p>WhatsApp: <strong>(99) 99999-9999</strong></p>
+  <p>Email: <strong>contato@bordados.com</strong></p>
+  <p>Instagram: <a href="https://instagram.com/bordados" target="_blank">@bordados</a></p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Bordados - Todos os direitos reservados</p>
+</footer>
+
+<script>
+  function enviarPedido(produto, preco, inputId) {
+    const qtd = document.getElementById(inputId).value;
+    const total = preco * qtd;
+    const msg = `Olá! Gostaria de comprar ${qtd}x ${produto}. Valor estimado: R$${total},00`;
+    const url = `https://wa.me/5599999999999?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+  }
+</script>
+
+</body>
+</html>
